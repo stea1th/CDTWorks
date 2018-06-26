@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Book</title>
+</head>
+<body>
+<th:block th:include="/_menu"></th:block>
+
+<div >
+    <form method="post" action="filter">
+        <input type="text" name="filter" placeholder="Введите название"/>
+        <button type="submit">Найти</button>
+    </form>
+</div>
+<hr/>
+
+<div style="border: 1px solid #494dcc;padding:5px;margin-bottom:20px;">
+<form method="post">
+    <table align="center">
+        <tr >
+            <th width="100" align="right">Book Id:</th>
+            <td th:text="${book.getId()}" align="center">Book Id</td>
+        </tr>
+        <tr >
+            <th width="100" align="right">Author:</th>
+            <td th:text="${book.getAuthor()}" width="200" align="center">author</td>
+        </tr>
+        <tr >
+            <th width="100" align="right">Titel:</th>
+            <td th:text="${book.getTitle()}" width="200" align="center">title</td>
+            <td><input type="text" name="title" placeholder="Измените название книги"/></td>
+        </tr>
+        <tr >
+            <th width="100" align="right">Description:</th>
+            <td th:text="${book.getDescription()}" width="200" align="center">description</td>
+            <td><input type="text" name="description" placeholder="Измените описание книги"/></td>
+        </tr>
+        <tr >
+            <th width="100" align="right">ISBN:</th>
+            <td th:text="${book.getIsbn()}" width="200" align="center">isbn</td>
+            <td><input type="text" name="isbn" placeholder="Измените ISBN книги"/></td>
+        </tr>
+        <tr >
+            <th width="100" align="right">PrintYear:</th>
+            <td th:text="${book.getPrintYear()}" width="200" align="center">printYear</td>
+            <td><input type="number" name="printYear" placeholder="Измените год выпуска книги"/></td>
+        </tr>
+
+        <tr >
+            <td colspan="3" align="right"><button type="submit">Update</button></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>
