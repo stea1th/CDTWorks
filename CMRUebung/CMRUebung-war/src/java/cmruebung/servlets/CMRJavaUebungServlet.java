@@ -101,17 +101,17 @@ public class CMRJavaUebungServlet extends HttpServlet {
         out.println("<hr>");
         out.println("<div>MethodeA4: </div>");
         test3.a4(102, 90);
-        test3.b3(90);
+        test3.getAndPrintDepartments(90);
         out.println("<hr>");
         out.println("<div>MethodeB4: </div>");
 //        test3.b4(90, 60);
-//        test3.b3(90);
+//        test3.getAndPrintDepartments(90);
         out.println("<hr>");
         out.println("<div>MethodeC4: </div>");
         //test3.b4(90, 50);
         //test3.c4(90, 102);
         out.println("<hr>");
-        //test3.b3(90);
+        //test3.getAndPrintDepartments(90);
 
         out.println("</body>");
         out.println("</html>");

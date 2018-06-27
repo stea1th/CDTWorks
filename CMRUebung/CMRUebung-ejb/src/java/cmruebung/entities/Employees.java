@@ -68,11 +68,6 @@ public class Employees implements Serializable {
     private Double salary;
     @Column(name = "commission_pct")
     private Double commissionPct;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
-    @Column(name = "job_id")
-    private String jobId;
     @OneToMany(mappedBy = "employees")
     private List<Departments> departmentsList;
     @JoinColumn(name = "department_id", referencedColumnName = "department_id")
@@ -83,6 +78,10 @@ public class Employees implements Serializable {
     @JoinColumn(name = "manager_id", referencedColumnName = "employee_id")
     @ManyToOne
     private Employees employees;
+    @JoinColumn(name = "job_id", referencedColumnName = "job_id")
+    @ManyToOne
+    private Jobs jobs;
+  
 
     public Employees() {
     }
@@ -91,13 +90,23 @@ public class Employees implements Serializable {
         this.employeeId = employeeId;
     }
 
-    public Employees(Integer employeeId, String lastName, String email, Date hireDate, String jobId) {
+    public Employees(Integer employeeId, String lastName, String email, Date hireDate) {
         this.employeeId = employeeId;
         this.lastName = lastName;
         this.email = email;
         this.hireDate = hireDate;
-        this.jobId = jobId;
+        
     }
+
+    public Jobs getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(Jobs jobs) {
+        this.jobs = jobs;
+    }
+    
+    
 
     public Integer getEmployeeId() {
         return employeeId;
@@ -161,14 +170,6 @@ public class Employees implements Serializable {
 
     public void setCommissionPct(Double commissionPct) {
         this.commissionPct = commissionPct;
-    }
-
-    public String getJobId() {
-        return jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
     }
 
     @XmlTransient

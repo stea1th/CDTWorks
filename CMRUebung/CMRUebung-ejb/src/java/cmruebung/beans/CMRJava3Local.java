@@ -15,8 +15,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface CMRJava3Local {
-    Employees a3(int employeesId);
-    Departments b3(int departmentId);
+    Employees getAndPrintEmployees(int employeesId);
+    Departments getAndPrintDepartments(int departmentId);
     void a4(int employeesId, int neuesDepartmentId);
     void b4(int altDepId, int neuDepId);
     void c4(int departmentsId, int employeesId);

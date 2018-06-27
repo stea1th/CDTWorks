@@ -20,7 +20,7 @@ public class CMRJava3 implements CMRJava3Local {
     private EntityManager em;
 
     @Override
-    public Employees a3(int employeesId) {
+    public Employees getAndPrintEmployees(int employeesId) {
         Employees e = em.find(Employees.class, employeesId);
         if(e!=null){
             System.out.printf("Die NachName: %s, Department: %s\n", e.getLastName(), e.getDepartments());
@@ -32,7 +32,7 @@ public class CMRJava3 implements CMRJava3Local {
     }
 
     @Override
-    public Departments b3(int departmentId) {
+    public Departments getAndPrintDepartments(int departmentId) {
         Departments d = em.find(Departments.class, (short)departmentId);
         if(d!=null){
             System.out.printf("Department: %s\n",d.getDepartmentName());
@@ -49,8 +49,8 @@ public class CMRJava3 implements CMRJava3Local {
     @Override
     public void a4(int employeesId, int neuesDepartmentId) {
         System.out.println("Altes Zustand:");
-        Employees e = a3(employeesId);
-        Departments d = b3(neuesDepartmentId);
+        Employees e = getAndPrintEmployees(employeesId);
+        Departments d = getAndPrintDepartments(neuesDepartmentId);
         System.out.println("---------------");
         if(e!=null){
             e.setDepartments(d);
@@ -64,8 +64,8 @@ public class CMRJava3 implements CMRJava3Local {
     @Override
     public void b4(int altDepId, int neuDepId) {
         System.out.println("Altes Zustand:");
-        Departments alt = b3(altDepId);
-        Departments neu = b3(neuDepId);
+        Departments alt = getAndPrintDepartments(altDepId);
+        Departments neu = getAndPrintDepartments(neuDepId);
         System.out.println("---------------");
         if(alt!=null && neu!=null){
             alt.setEmployeesList(neu.getEmployeesList());
@@ -78,8 +78,8 @@ public class CMRJava3 implements CMRJava3Local {
     @Override
     public void c4(int departmentsId, int employeesId) {
         System.out.println("Altes Zustand:");
-        Departments d = b3(departmentsId);
-        Employees e = a3(employeesId);
+        Departments d = getAndPrintDepartments(departmentsId);
+        Employees e = getAndPrintEmployees(employeesId);
         System.out.println("---------------");
         if(d!=null && e!=null){
             d.getEmployeesList().remove(e);

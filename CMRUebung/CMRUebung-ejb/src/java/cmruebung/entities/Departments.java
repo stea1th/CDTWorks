@@ -51,7 +51,8 @@ public class Departments implements Serializable {
     private Locations locations;
     @OneToMany(mappedBy = "departments")
     private List<Employees> employeesList;
-
+   
+    
     public Departments() {
     }
 
