@@ -32,7 +32,8 @@ public class Java4 implements Java4Local {
         System.out.printf("Finde alle Employees aus %d Department:", departmentsId);
         List<Employees> list = em.createQuery("SELECT e "
                 + "FROM Employees e JOIN e.departments d "
-                + "WHERE d.departmentId = :departmentsId ").setParameter("departmentsId", (short) departmentsId)
+                + "WHERE d.departmentId = :departmentsId ")
+                .setParameter("departmentsId", (short) departmentsId)
                 .getResultList();
         if (!list.isEmpty()) {
             list.forEach(e -> System.out.printf("%5d%20s%20s\n", e.getEmployeeId(), e.getFirstName(), e.getLastName()));
@@ -44,7 +45,8 @@ public class Java4 implements Java4Local {
         System.out.printf("Finde Location wo %d Department sich befindet:", departmentsId);
         Locations e = (Locations) em.createQuery("SELECT l "
                 + "FROM Locations l JOIN l.departmentsList d "
-                + "WHERE d.departmentId = :departmentsId ").setParameter("departmentsId", (short) departmentsId)
+                + "WHERE d.departmentId = :departmentsId ")
+                .setParameter("departmentsId", (short) departmentsId)
                 .getSingleResult();
         if (e != null) {
             System.out.printf("%20s%20s%4s\n", e.getCity(), e.getStateProvince(), e.getCountries().getCountryId());
@@ -56,7 +58,8 @@ public class Java4 implements Java4Local {
         System.out.printf("Finde alle Employees, die in %s Country arbeiten:", countryId);
         List<Employees> list = em.createQuery("SELECT e "
                 + "FROM Employees e "
-                + "WHERE e.departments.locations.countries.countryId = :countryId ").setParameter("countryId", countryId)
+                + "WHERE e.departments.locations.countries.countryId = :countryId ")
+                .setParameter("countryId", countryId)
                 .getResultList();
         if (!list.isEmpty()) {
             list.forEach(e -> System.out.printf("%5d%20s%20s\n", e.getEmployeeId(), e.getFirstName(), e.getLastName()));
@@ -67,9 +70,12 @@ public class Java4 implements Java4Local {
     public void JPQL4(int employeeId) {
         System.out.printf("Finde das Country, in dem %d Employee arbeitet:", employeeId);
         Countries e = (Countries) em.createQuery("SELECT c "
-                + "FROM Countries c JOIN c.locationsList l "
+                + "FROM Countries c "
+                + "JOIN c.locationsList l "
                 + "JOIN l.departmentsList d "
-                + "WHERE d.employees.employeeId = :employeeId ").setParameter("employeeId", employeeId)
+                + "JOIN d.employeesList e "
+                + "WHERE e.employeeId = :employeeId ")
+                .setParameter("employeeId", employeeId)
                 .getSingleResult();
         if (e != null) {
             System.out.printf("%5s%20s\n", e.getCountryId(), e.getCountryName());
@@ -159,7 +165,8 @@ public class Java4 implements Java4Local {
         System.out.printf("Finde alle Jobs, die in einem %d Department ausgeübt werden:", departmentsId);
         List<Jobs> list = em.createQuery("SELECT j "
                 + "FROM Jobs j JOIN j.employeesList e "
-                + "WHERE e.departments.departmentId = :departmentsId ").setParameter("departmentsId", (short) departmentsId)
+                + "WHERE e.departments.departmentId = :departmentsId ")
+                .setParameter("departmentsId", (short) departmentsId)
                 .getResultList();
         list.forEach(e -> System.out.printf("%35s%10d%10d\n", e.getJobTitle(), e.getMinSalary(), e.getMaxSalary()));
 

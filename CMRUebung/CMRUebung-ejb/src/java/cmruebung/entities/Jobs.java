@@ -63,7 +63,7 @@ public class Jobs implements Serializable {
         this.jobTitle = jobTitle;
     }
 
-//    @XmlTransient
+    @XmlTransient
     public List<Employees> getEmployeesList() {
         return employeesList;
     }

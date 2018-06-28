@@ -38,7 +38,7 @@ public class Java4Servlet extends HttpServlet
         out.println("<h1>MethodJPQL3:</h1>");
         java4.JPQL3("CA");
         out.println("<h1>MethodJPQL4:</h1>");
-        java4.JPQL4(201);
+        java4.JPQL4(141);
         out.println("<h1>MethodJPQL5:</h1>");
         java4.JPQL5(90);
         out.println("<h1>MethodCMR1:</h1>");
