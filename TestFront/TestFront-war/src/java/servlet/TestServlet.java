@@ -44,6 +44,7 @@ public class TestServlet extends HttpServlet {
                 case "abfrage1":
                     list = bean.abfrage1(request.getParameter("name"), request.getParameter("vorname"), request.getParameter("massnahme"));
                     break;
+                
                 case "abfrage2":
                     list = bean.abfrage2(request.getParameter("name"), request.getParameter("vorname"), request.getParameter("massnahme"));
                     break;
@@ -66,7 +67,6 @@ public class TestServlet extends HttpServlet {
 
             }
             request.setAttribute("list", list);
-            //request.getRequestDispatcher(PRINTRESULT).forward(request, response);
         } catch (ClassNotFoundException | SQLException ex) {
 
         } finally {
