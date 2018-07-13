@@ -8,47 +8,24 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <style>
-            table {width: 100%; border-spacing: 3px;}
-            tr:nth-child(2n) {
-                text-align: left;
-                background: #ffff66;
-            }
-            tr:nth-child(2n+1) {
-                background: greenyellow;
-                text-align: left;
-            }
-            tr:nth-child(1) {
-                background: #666666;
-                color: white;
-                text-align: left;
-            }
-
-            .btn {
-                display: inline-block;
-                margin-bottom: 4px;
-                padding: 4px 8px;
-                background-color: greenyellow;
-                border: 1px solid #eeeeee;
-                cursor: pointer;
-            }
-
-
-        </style>
+        <title>Fehltage CDT</title>
+        <link rel="stylesheet" type="text/css" href="template/mycss.css">
     </head>
-    <body style='background: lavenderblush'>
+    <body style='background: lightgray' class='container'>
+        <header>
         <h1 align='center'>Fehltage Datenbank für CDT</h1>
-        <div style="border: 1px solid #494dcc;padding:5px;margin-bottom:20px;">
-            <label for="pseudoBtn" class="btn" onclick="window.history.back()">Zurück</label>
-        </div>
+        <ul class='top-buttons'>
+            <li><label for="pseudoBtn" class="btn" onclick="window.history.back()">Zurück</label></li>
+        </ul>
+        </header>
         <div>
-            <table>
+            <hr/>
+            <table class='ausgabe' cellpadding="8" cellspacing="0">
                 <tr>
-                    <th>NameTest</th>
+                    <th>Name</th>
                     <th>Vorname</th>
                     <th>Massnahme</th>
                     <th>Baustein</th>
@@ -58,16 +35,22 @@
                     <tr >
                         <td><c:out value="${x.getName()}"/></td>
                         <td><c:out value="${x.getVorname()}"/></td>
-                        <td><c:out value="${x.getMassnahme()}"/></td>
-                        <td><c:out value="${x.getBaustein()}"/></td>
-                        <td><c:out value="${x.getFehlTage()}"/></td>
+                        <td align='center'><c:out value="${x.getMassnahme()}"/></td>
+                        <td align='center'><c:out value="${x.getBaustein()}"/></td>
+                        <td align='center'><c:out value="${x.getFehlTage()}"/></td>
                     </tr>
                 </c:forEach>
             </table>
-                    <div>
-                        <c:set var="x" value="${error}"/>
-                        <div align='center' style="color: red"><c:out value="${x}"/></div>
-                    </div>
+            <div class="output" align='center'>
+                <c:set var="x" value="${error}"/>
+                <div  style="color: red"><p><c:out value="${x}"/></p></div>
+            </div>
         </div>
+        <footer >
+            <hr/>
+            <div class='label' align='right'>
+                (c)Copyright stea1th
+            </div>
+        </footer>
     </body>
 </html>

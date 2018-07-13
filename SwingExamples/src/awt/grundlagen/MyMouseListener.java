@@ -35,8 +35,8 @@ public class MyMouseListener implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        Point point = e.getLocationOnScreen();
-        examp.paint(examp.createGraphics((int) Math.floor(point.getX()), (int) Math.floor(point.getY())));
+        Point point = e.getPoint();
+        examp.paint(examp.createGraphics(point));
     }
 
     @Override

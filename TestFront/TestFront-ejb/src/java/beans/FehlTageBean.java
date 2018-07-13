@@ -138,18 +138,18 @@ public class FehlTageBean implements FehlTageBeanLocal {
 
     @Override
     public List<TeilnehmerDTO> abfrage6() throws ClassNotFoundException, SQLException{
-        String sql = "select t.name, t.vorname, m.m_id, count(f.datum)\n"
+        String sql = "select t.name, t.vorname, m.bez, count(f.datum)\n"
                 + "from Fehltag f join Teilnehmer t\n"
                 + "on f.t_id = t.t_id\n"
                 + "join Teil_Mass tm\n"
                 + "on t.t_id = tm.t_id\n"
                 + "join Massnahme m\n"
                 + "on tm.m_id = m.m_id\n"
-                + "group by t.name, t.vorname, m.m_id";
+                + "group by t.name, t.vorname, m.bez";
         return getList("6", sql);
     }
 
-    public List<TeilnehmerDTO> getList(String... arg) throws ClassNotFoundException, SQLException {
+    private List<TeilnehmerDTO> getList(String... arg) throws ClassNotFoundException, SQLException {
 
         List<TeilnehmerDTO> list = new ArrayList<>();
         Class.forName(DRIVER);
@@ -159,7 +159,7 @@ public class FehlTageBean implements FehlTageBeanLocal {
             while (result.next()) {
                 switch (arg[0]) {
                     case "1":
-                        list.add(new TeilnehmerDTO(result.getString(1), result.getString(2), result.getInt(3), arg[2], "-"));
+                        list.add(new TeilnehmerDTO(result.getString(1), result.getString(2), result.getInt(3), arg[2]));
                         break;
                     case "2":
                         list.add(new TeilnehmerDTO(result.getString(1), result.getString(2), result.getInt(4), arg[2], result.getString(3)));
@@ -168,7 +168,7 @@ public class FehlTageBean implements FehlTageBeanLocal {
                         list.add(new TeilnehmerDTO(arg[2], arg[3], result.getInt(2), arg[4], arg[5]));
                         break;
                     case "4":
-                        list.add(new TeilnehmerDTO(result.getString(1), result.getString(2), result.getInt(3), arg[2], "-"));
+                        list.add(new TeilnehmerDTO(result.getString(1), result.getString(2), result.getInt(3), arg[2]));
                         break;
                     case "5":
                         list.add(new TeilnehmerDTO(result.getString(1), result.getString(2), result.getInt(3), arg[2], arg[3]));

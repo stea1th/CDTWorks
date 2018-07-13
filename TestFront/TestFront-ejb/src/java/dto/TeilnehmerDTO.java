@@ -25,7 +25,7 @@ public class TeilnehmerDTO implements Serializable{
     
 
     public TeilnehmerDTO(String name, String vorname, Integer fehlTage, String massnahme) {
-        this(name, vorname, fehlTage, massnahme, null);
+        this(name, vorname, fehlTage, massnahme, "-");
     }
 
     public TeilnehmerDTO(String name, String vorname, Integer fehlTage, String massnahme, String baustein) {

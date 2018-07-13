@@ -35,17 +35,18 @@ public class Example1 extends Frame {
         mouseListener.setExamp(ex);
 
     }
-    
-    public Graphics createGraphics(int x, int y) {
-        int thisX = x - 35;
-        int thisY = y - 20;
+
+    public Graphics createGraphics(Point p) {
+        //System.out.println(p.x+" "+p.y);
+        int thisX = (int) Math.floor(p.getX()) - 35;
+        int thisY = (int) Math.floor(p.getY()) - 20;
 
         Graphics g = getGraphics();
         g.setColor(Color.GREEN);
         g.fillOval(thisX, thisY, 70, 40);
         g.setColor(Color.RED);
         g.drawOval(thisX, thisY, 10, 10);
-        
+
         g.drawOval(thisX + 70 - 10, thisY, 10, 10);
         g.setColor(Color.BLACK);
         g.drawLine(thisX + 20, thisY + 30, thisX + 50, thisY + 30);
