@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 
-
 /**
  *
  * @author stea1th
@@ -137,7 +136,7 @@ public class FehlTageBean implements FehlTageBeanLocal {
     }
 
     @Override
-    public List<TeilnehmerDTO> abfrage6() throws ClassNotFoundException, SQLException{
+    public List<TeilnehmerDTO> abfrage6() throws ClassNotFoundException, SQLException {
         String sql = "select t.name, t.vorname, m.bez, count(f.datum)\n"
                 + "from Fehltag f join Teilnehmer t\n"
                 + "on f.t_id = t.t_id\n"
