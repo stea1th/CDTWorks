@@ -14,9 +14,11 @@
         <title>Fehltage CDT</title>
         <link rel="stylesheet" type="text/css" href="template/mycss.css">
     </head>
-    <body style='background: lightgray' class='container'>
+    <body class='container'>
         <header>
-        <h1 align='center'>Fehltage Datenbank für CDT</h1>
+            <div class="titel">
+        <h1 align='center' class="head-font">Fehltage Datenbank für CDT</h1>
+        </div>
         <ul class='top-buttons'>
             <li><label for="pseudoBtn" class="btn" onclick="window.history.back()">Zurück</label></li>
         </ul>

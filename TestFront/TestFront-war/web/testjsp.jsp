@@ -14,9 +14,12 @@
         <link rel="stylesheet" type="text/css" href="template/mycss.css">
         <script src='template/myjs.js'></script>
     </head>
-    <body style='background: lightgray' class='container'>
+    <body class='container'>
         <header>
-            <h1 align='center'>Fehltage Datenbank für CDT</h1>
+            <div class="titel">
+                <h1 align='center' class="head-font">Fehltage Datenbank für CDT</h1>
+                
+            </div>
             <ul class='top-buttons' >
                 <li><label for="pseudoBtn" class="btn" onclick="openbox('form1');
                         return false">Abfrage1</label></li>
@@ -37,7 +40,7 @@
 
         <div id="form1" class='forms' >
             <form method="post" action="TestServlet?action=abfrage1" >
-                <h2 align='center'>Teilnehmerdaten:</h2>
+                <h2 align='center' class="head">Teilnehmerdaten:</h2>
                 <table align="center" class="input">
                     <tr >
                         <th width="100" align="right">Name:</th>
@@ -78,7 +81,7 @@
         </div>
         <div id="form2" class='forms'>
             <form method="post" action="TestServlet?action=abfrage2">
-                <h2 align='center'>Teilnehmerdaten:</h2>
+                <h2 align='center' class="head">Teilnehmerdaten:</h2>
                 <table align="center" class="input">
                     <tr >
                         <th width="100" align="right">Name:</th>
@@ -119,7 +122,7 @@
         </div>
         <div id="form3" class='forms'>
             <form method="post" action="TestServlet?action=abfrage3">
-                <h2 align='center'>Teilnehmerdaten:</h2>
+                <h2 align='center' class="head">Teilnehmerdaten:</h2>
                 <table align="center" class="input">
                     <tr >
                         <th width="100" align="right">Name:</th>
@@ -187,7 +190,7 @@
         </div>
         <div id="form4" class='forms'>
             <form method="post" action="TestServlet?action=abfrage4">
-                <h2 align='center'>Massnahme:</h2>
+                <h2 align='center' class="head">Massnahme:</h2>
                 <table align="center" class="input">
                     <tr>
                         <th width="100" align="right">Massnahme:</th>
@@ -222,7 +225,7 @@
         </div>
         <div id="form5" class='forms'>
             <form method="post" action="TestServlet?action=abfrage5">
-                <h2 align='center'>Massnahme und Baustein:</h2>
+                <h2 align='center' class="head">Massnahme und Baustein:</h2>
                 <table align="center" class="input">
                     <tr >
                         <th width="100" align="right">Massnahme:</th>
@@ -282,7 +285,7 @@
         </div>
         <div id="form6"  class='forms'>
             <form method="post" action="TestServlet?action=abfrage6">
-                <h2 align='center'>alle Teilnehmer mit Fehltage:</h2>
+                <h2 align='center' class="head">alle Teilnehmer mit Fehltage:</h2>
                 <table align="center" >
                     <tr >
                         <th width="100" hidden align="right">Baustein:</th>
